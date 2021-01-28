@@ -35,17 +35,18 @@ export default function Projects() {
   },[]);
 
 
-  const alltypes = [...new Set(projects.map((item) => item.type))];
-  const [projecttype,setProjecttype]=useState("swarm");
-  const [types, settypes] = useState(alltypes);
+const alltypes = [ ...new Set(projects.map((item) => item.type))];
+const [projecttype,setProjecttype]=useState("swarm");
+const [types, settypes] = useState(alltypes);
+  
   
 
   const filterprojects = (type) => {
     setProjecttype(type);
     console.log(alltypes);
   };
+   
 
-   console.log(alltypes[0]);
     const Types = ({ types, filterprojects }) => {
       // console.log(types);
     return (
@@ -66,7 +67,9 @@ export default function Projects() {
     );
   };
 
-  const Menu = ({ projects }) => {
+  
+
+const Menu = ({ projects }) => {
   return (
     <div className="project-section-center">
       {projects.filter(project => project.type === projecttype).map((project) => {
@@ -80,7 +83,7 @@ export default function Projects() {
                 <h4>{title}</h4>
               </header>
               <p className="project-text">{description}</p>
-              <Link to={'/'+_id} id='ExtraBtn'><a href="#" className='Extra-btn' >Read more</a></Link>
+              <Link to={'/'+_id} id='ExtraBtn'><a className='Extra-btn' >Read more</a></Link>
             </div>
           </article>
         );
@@ -90,7 +93,7 @@ export default function Projects() {
 };
 
   return (
-    <div className="proj-container">
+    <div className="container">
       <div className="projects-title">
           <h2>Our Projects</h2>
           <div className="project-underline"></div>
